@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container, Global } from "./styles";
+import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Global/>
+      <Container>
+        <h1>Previsão do Tempo</h1>
+        <div>
+          <input placeholder="Insira aqui o nome da cidade"></input>
+          <button><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
+        </div>
+        
+      </Container>
+    </>
   );
 }
 
