@@ -18,9 +18,8 @@ export const Container = styled.main`
     flex-direction: column;
     align-items: center;
     >h1{
-        padding-bottom: 6vh;
-        margin: 0;
-        margin-top: 6vh;
+        padding-bottom: 2vh;
+        margin: 6vh 0 0 0;
         color: white;
         font-size: 4rem;
     }
@@ -32,39 +31,66 @@ export const Container = styled.main`
         >input{
             height: 2rem;
             width:32rem;
-            padding: 0.5rem;
+            padding: 1rem;
+            font-size: 1.5rem;
+            &:focus{
+                outline: none;
+                border-width: 2px;
+                border-color: black;
+                border-style: solid;
+            }
         }
         >button{
-            padding: 0;
             background-color: transparent;
-            border: none;
+            padding: 0;
             position: relative;
             right: 2rem;
+            border: none;
+            font-size: 1.25rem;
             cursor: pointer;
         }
     }
     >h2{
+        width: 28rem ;
         color: white;
-        position: relative;
-        right: 8rem;
-        font-size: 2.5rem;
+        font-size: 2rem;   
+    }
+    >h3{
+        display: flex;
+        justify-content: space-between;
+        column-gap: 0;
+        width: 28rem;
+        margin: 0;
+        color: #000000;
+        font-size: 0.75rem;
+        font-weight: 300;
+        margin-bottom: 0.75rem;
+        >span{
+            width: 14rem;
+            word-spacing: 0.5rem;
+        }
     }
     >ul{
         list-style-type: none;
+        height: 12rem;
+        width: 28rem;
         max-width: 60rem;
-        width: 32rem;
-        max-height: 16rem;
         text-indent: 0;
         display: flex;
-        align-self: center;
+        align-content: space-between;
         flex-direction: column;
-        justify-content: center;
         flex-wrap: wrap;
-        gap: 40px;
+        row-gap: 3vh;
         margin:0;
         padding: 0;
         >li{
+            width: 14rem;
             color: #000000;
+            font-size: 1rem;
+            font-weight: 600;
+            >span{
+                margin-left: 0.75rem;
+            }
         }
     }
 `
