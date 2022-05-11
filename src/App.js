@@ -1,6 +1,6 @@
 import { Container, Global } from "./styles";
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from "react";
 import {WeatherCard} from "./components/Cards";
 
@@ -8,7 +8,8 @@ function App() {
   const capitals = ['Belém' , 'Belo Horizonte', 'Brasília', 'Curitiba', 'Fortaleza', 'João Pessoa','Manaus','Rio de Janeiro', 'Salvador','São Paulo'];
   const [capitalData, setCapitalData] = useState([]);
   const [doneFetching, setDoneFetching] = useState(false);
-  const [targetCity,setTargetCity]=useState('');
+  const [inputValue,setInputValue]=useState('');
+  const [targetCity, setTargetCity] = useState('');
   const [targetCitySent, setTargetCitySent]=useState(false);
   
   const FetchDataCapitals = async(city)=>{
@@ -20,10 +21,13 @@ function App() {
     const cityData = {name: city, mintemp: json.forecast.forecastday[0].day.mintemp_c, maxtemp:json.forecast.forecastday[0].day.maxtemp_c};
     setCapitalData(oldData=>[...oldData,cityData]);
   }
-
   useEffect(()=>{
     console.log(targetCity)
-  },[targetCity])
+  },[targetCity]);
+
+  useEffect(()=>{
+    console.log(inputValue)
+  },[inputValue])
 
   useEffect(()=>{
     capitals.map(i=>{
@@ -32,21 +36,18 @@ function App() {
     setDoneFetching(true)
   },[]);
 
-  useEffect(()=>{
-    doneFetching && console.log(capitalData)
-  },[doneFetching])
   return (
     <>
       <Global/>
       <Container>
-        <h1>Previsão do Tempo</h1>
-        {targetCitySent && <WeatherCard target={targetCity} resetSearch={setTargetCity}/>}
+        <h1>Weather Forecast</h1>
+        {targetCitySent && <WeatherCard target={targetCity} showCard={setTargetCitySent} />}
         <div>
-          <input onChange={(e)=>setTargetCity(e.target.value)}  placeholder="Insira aqui o nome da cidade"></input>
-          <button onClick={()=>setTargetCitySent(true)}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
+          <input onChange={(e)=>setInputValue(e.target.value)}  placeholder="Insert city name here "></input>
+            <button onClick={()=>{setTargetCitySent(true);setTargetCity(inputValue)}}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
         </div>
 
-        <h2> Capitais</h2>
+        <h2> Capitals</h2>
         
         <h3>
           <span>Min Máx</span>

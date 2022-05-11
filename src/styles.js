@@ -9,11 +9,11 @@ export const Global = createGlobalStyle`
         border: 0;
     }
 `
-
 export const Container = styled.main`
     background: rgb(255,126,0);
     background: linear-gradient(180deg, rgba(255,126,0,1) 0%, rgba(255,186,0,1) 100%); 
-    height: 100vh;
+    min-height: 100vh;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,7 +80,7 @@ export const Container = styled.main`
         align-content: space-between;
         flex-direction: column;
         flex-wrap: wrap;
-        row-gap: 3vh;
+        row-gap: 1.5rem;
         margin:0;
         padding: 0;
         >li{
