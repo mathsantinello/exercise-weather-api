@@ -12,6 +12,7 @@ function App() {
   const [targetCity, setTargetCity] = useState('');
   const [targetCitySent, setTargetCitySent]=useState(false);
   
+
   const FetchDataCapitals = async(city)=>{
     const response = await fetch(
       `http://api.weatherapi.com/v1/forecast.json?key=a5fb40245dd54ebe85b14651220305&q=${city}&days=1&aqi=no&alerts=no`
@@ -22,14 +23,13 @@ function App() {
     setCapitalData(oldData=>[...oldData,cityData]);
   }
   useEffect(()=>{
-    console.log(targetCity)
-  },[targetCity]);
+    console.log(targetCitySent)
+  },[targetCitySent]);
 
   useEffect(()=>{
-    console.log(inputValue)
-  },[inputValue])
-
-  useEffect(()=>{
+    if(doneFetching){
+      return;
+    }
     capitals.map(i=>{
       FetchDataCapitals(i)
     });

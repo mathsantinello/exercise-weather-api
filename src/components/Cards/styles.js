@@ -1,6 +1,8 @@
 import styled, {Keyframes} from 'styled-components';
 import { keyframes } from 'styled-components';
 
+const mediaWidth = '700px';
+
 const ripple = keyframes`
  0% {
     top: 36px;
@@ -41,6 +43,10 @@ export const CardContainer = styled.section`
     flex-direction: column;
     padding: 1rem 4rem 1rem 4rem;
     color: #4A4A4B;
+    @media(max-width:${mediaWidth}){
+            width: 80vw;
+            padding: 1rem 10vw 1rem 10vw;
+        }
     >text{
         font-size: 1rem;
         align-self: center;
@@ -89,6 +95,7 @@ export const CardContainer = styled.section`
         column-gap: 4rem;
         row-gap: 1rem;
         width: 20rem;
+    
         >div{
             display: flex;
             flex-direction: row;
@@ -109,6 +116,10 @@ export const CardContainer = styled.section`
         width: 32rem;
         position: relative;
         right: 2rem;
+        @media(max-width:${mediaWidth}){
+            width: 100vw;
+            right: 10vw;
+        }
     }
     >footer{
         display: flex;
